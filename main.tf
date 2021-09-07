@@ -47,7 +47,7 @@ data "aws_iam_policy_document" "policy" {
       test     = "ArnLike"
       variable = "aws:SourceArn"
       values = [
-        "arn:${data.aws_partition.current.partition}:iam:*:${data.aws_caller_identity.current.account_id}:role/*-${var.stage}"
+        "arn:${data.aws_partition.current.partition}:iam::${data.aws_caller_identity.current.account_id}:role/*-${var.stage}"
       ]
     }
   }
