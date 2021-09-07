@@ -23,7 +23,7 @@ data "aws_iam_policy_document" "policy" {
     principals {
       type = "AWS"
       identifiers = [
-        "arn:aws:${data.aws_partition.current.partition}::${data.aws_caller_identity.current.account_id}:role/*-${var.stage}"
+        "*"
       ]
     }
     actions = [
@@ -41,6 +41,13 @@ data "aws_iam_policy_document" "policy" {
       variable = "kms:RequestAlias"
       values = [
         "alias/${var.stage}"
+      ]
+    }
+    condition {
+      test     = "ArnLike"
+      variable = "aws:SourceArn"
+      values = [
+        "arn:${data.aws_partition.current.partition}:iam:*:${data.aws_caller_identity.current.account_id}:role/*-${var.stage}"
       ]
     }
   }
