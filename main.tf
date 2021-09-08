@@ -44,8 +44,8 @@ data "aws_iam_policy_document" "policy" {
       ]
     }
     condition {
-      test     = "ArnLike"
-      variable = "aws:SourceArn"
+      test     = "StringLike"
+      variable = "aws:SourceIdentity"
       values = [
         "arn:${data.aws_partition.current.partition}:iam::${data.aws_caller_identity.current.account_id}:role/*-${var.stage}"
       ]
