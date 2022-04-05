@@ -1,3 +1,8 @@
+output "stage" {
+  value       = var.stage
+  description = "Re-output of var.stage"
+}
+
 output "key_id" {
   value = aws_kms_key.key.key_id
 }
