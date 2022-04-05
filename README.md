@@ -38,4 +38,5 @@ No modules.
 |------|-------------|
 | <a name="output_key_alias"></a> [key\_alias](#output\_key\_alias) | n/a |
 | <a name="output_key_id"></a> [key\_id](#output\_key\_id) | n/a |
+| <a name="output_stage"></a> [stage](#output\_stage) | Re-output of var.stage |
 <!-- END_TF_DOCS -->
